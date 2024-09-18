@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(0, "c:/Users/P927/OneDrive/Área de Trabalho/RPA - Azure")
+
 from module import *
 
 user = os.getlogin()

@@ -1,15 +1,16 @@
+import sys
+sys.path.insert(0, "c:/Users/P927/OneDrive/Área de Trabalho/RPA - Azure")
+
 from module import *
 
 folder_path= 'data/input'
 folder = os.listdir(folder_path)
-print(folder)
 
 data = {}
 
 for file in folder:
   name = file.replace('.', ' ').split(' ')
   name = f"{name[3]} {name[4] if name[4] != 'csv' else ''}"
-  print(name)
   dataframe = pd.read_csv(f'{folder_path}/{file}', index_col='ID')
   data.update({name: dataframe})
   

@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(0, "c:/Users/P927/OneDrive/Área de Trabalho/RPA - Azure")
+
 from module import *
 
 queries={
@@ -50,7 +53,6 @@ def start_download_process(driver):
       try:
         x, y = pyautogui.locateCenterOnScreen(f'images/download_button.png')
         pyautogui.click(x, y)
-        print(f'Elemento encontrado em ({x}, {y}) e clicado.')
       except pyautogui.ImageNotFoundException:
         print('Elemento não encontrado na tela.')
         c+=1
