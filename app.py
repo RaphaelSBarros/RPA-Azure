@@ -1,4 +1,4 @@
-from controllers.module import *
+from module import *
 
 class App(customtkinter.CTk):
     def __init__(self):
