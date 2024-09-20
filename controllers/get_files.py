@@ -1,7 +1,14 @@
 import sys
-sys.path.insert(0, "c:/Users/P927/OneDrive/Área de Trabalho/RPA - Azure")
+import os
+
+# Adiciona o caminho da pasta RPA - AZURE ao sys.path
+root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, root)
 
 from module import *
+
+class CanceledProcessException(Exception):
+  pass
 
 queries={
   "alianza": r"https://dev.azure.com/LatamFabricaDeSoftware/Alianza/_queries/query/d4ad2c44-446d-4dac-a7ca-b3f1e7f457f8/",
@@ -40,7 +47,6 @@ def click_button(driver, xpath):
     return "Não foi possível clicar no botão"
   
 def start_download_process(driver):
-  c = input('Fazer login antes de continuar')
   for client, query in queries.items():
     driver.get(query)
     time.sleep(3)
@@ -58,10 +64,8 @@ def start_download_process(driver):
         c+=1
       except:
         print("Deu outro erro")
+        c+=1
       else:
         break
   time.sleep(5)
   driver.quit()
-  
-driver = open_browser()
-start_download_process(driver)
