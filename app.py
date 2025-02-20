@@ -1,5 +1,8 @@
 import sys
-sys.path.insert(0, "c:/Users/P927/OneDrive/Área de Trabalho/RPA - Azure")
+import os
+
+root = os.path.abspath(os.path.dirname(__file__))
+sys.path.insert(0, root)
 
 from module import *
 from controllers.get_files import start_download_process, open_browser
